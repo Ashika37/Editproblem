@@ -16,14 +16,11 @@ public class Passenger {
 	@SequenceGenerator(name="pass-seq",sequenceName="pass_seq",allocationSize=1)
 	
 	private long passenger_id;
-	private String passenger_salutation;
 	private String passenger_name;
-	private String passenger_sirname;
-	private String gender;
+	private String gender;	
+	private String passenger_surname;
+	private String salutation;
 	
-	public Passenger() {
-		
-	}
 	public long getPassenger_id() {
 		return passenger_id;
 	}
@@ -42,27 +39,21 @@ public class Passenger {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getPassenger_salutation() {
-		return passenger_salutation;
-	}
-	public void setPassenger_salutation(String passenger_salutation) {
-		this.passenger_salutation = passenger_salutation;
-	}
-	public String getPassenger_sirname() {
-		return passenger_sirname;
+	public String getPassenger_surname() {
+		return passenger_surname;
 	}
 	public void setPassenger_sirname(String passenger_sirname) {
-		this.passenger_sirname = passenger_sirname;
+		this.passenger_surname = passenger_sirname;
+	}
+	public String getSalutation() {
+		return salutation;
+	}
+	public void setSalutation(String salutation) {
+		this.salutation = salutation;
 	}
 	@Override
 	public String toString() {
-		return "Passenger [passenger_id=" + passenger_id + ", passenger_salutation=" + passenger_salutation
-				+ ", passenger_name=" + passenger_name + ", passenger_sirname=" + passenger_sirname + ", gender="
-				+ gender + "]";
+		return "Passenger [passenger_id=" + passenger_id + ", passenger_name=" + passenger_name + ", gender=" + gender
+				+ ", passenger_surname=" + passenger_surname + ", salutation=" + salutation + "]";
 	}
-	
-	
-	
-	
-	
 }

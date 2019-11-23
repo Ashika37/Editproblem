@@ -22,7 +22,6 @@ import com.finalProject.entity.FlightSearch;
 import com.finalProject.service.FlightService;
 
 @Controller
-@RequestMapping("/")
 public class FlightController {
 	
 	private FlightService flightservice;
@@ -35,8 +34,14 @@ public class FlightController {
 		this.flightservice = flightservice;
 	}
 	
+	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	public ModelAndView hello(HttpServletResponse response) throws IOException {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		return mv;
+	}
 		
-	@PostMapping(value = "/allFlights")
+	@RequestMapping(value = "/allFlights", method = RequestMethod.POST)
 	public ModelAndView displayAllFlight() {
 		System.out.println("Admin Requested : All Flights");
 		ModelAndView mv = new ModelAndView();
@@ -46,7 +51,7 @@ public class FlightController {
 		return mv;
 	}
 	
-	@GetMapping(value = "/allFlights")
+	@RequestMapping(value = "/allFlights", method = RequestMethod.GET)
 	public ModelAndView displayAllFlight1() {
 		System.out.println("Admin Requested : All Flights");
 		ModelAndView mv = new ModelAndView();
@@ -57,7 +62,7 @@ public class FlightController {
 	}
 	
 
-	@GetMapping(value = "/addFlight")
+	@RequestMapping(value = "/addFlight", method = RequestMethod.GET)
 	public ModelAndView displayNewFlightForm() {
 		ModelAndView mv = new ModelAndView("addFlight");
 		mv.addObject("headerMessage", "Add Flight Details");
@@ -65,7 +70,7 @@ public class FlightController {
 		return mv;
 	}
 	
-	@PostMapping(value = "/addFlight")
+	@RequestMapping(value = "/addFlight", method = RequestMethod.POST)
 	public ModelAndView saveNewUser(@ModelAttribute FlightSearch fsearch, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/allFlights");
 
@@ -83,7 +88,7 @@ public class FlightController {
 	}
 	
 	
-	@GetMapping(value = "/editFlight/{id}")
+	@RequestMapping(value = "/editFlight/{id}", method = RequestMethod.GET)
 	public ModelAndView displayEditFlightForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("editFlight");
 		FlightSearch flightsearch = flightservice.getFlightById(id);
@@ -94,7 +99,7 @@ public class FlightController {
 	
 	
 	
-	@PostMapping(value = "/editFlight/{id}")
+	@RequestMapping(value = "/editFlight/{id}", method = RequestMethod.POST)
 	public ModelAndView saveEditedUser(@ModelAttribute FlightSearch flightsearch, BindingResult result,@PathVariable Long id) {
 	
 		boolean isEdit = flightservice.editFlightById(id);
@@ -110,7 +115,7 @@ public class FlightController {
 		ModelAndView mv = new ModelAndView("redirect:/allFlights");
 		return mv;
 	}
-	@GetMapping(value = "/deleteFlight/{id}")
+	@RequestMapping(value = "/deleteFlight/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteFlightById(@PathVariable Long id) {
 		boolean isDeleted = flightservice.deleteFlightById(id);
 		System.out.println("Flight deletion respone: " + isDeleted);

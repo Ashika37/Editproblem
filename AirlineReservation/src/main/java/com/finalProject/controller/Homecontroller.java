@@ -11,10 +11,31 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Homecontroller {
-	@RequestMapping(value = { "/", "/Login" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/homepage" }, method = RequestMethod.GET)
 	public ModelAndView hello(HttpServletResponse response) throws IOException {
 		ModelAndView mv = new ModelAndView();
+		mv.setViewName("homepage");
+		return mv;
+	}
+	
+	@RequestMapping(value = { "/", "/Login" }, method = RequestMethod.GET)
+	public ModelAndView hello1(HttpServletResponse response) throws IOException {
+		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Login");
+		return mv;
+	}
+	
+	@RequestMapping(value = { "/", "/flightdetail" }, method = RequestMethod.GET)
+	public ModelAndView hello2(HttpServletResponse response) throws IOException {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("flightdetail");
+		return mv;
+	}
+	
+	@RequestMapping(value = { "/", "/SeatBook" }, method = RequestMethod.GET)
+	public ModelAndView hello3(HttpServletResponse response) throws IOException {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("SeatBook");
 		return mv;
 	}
 }

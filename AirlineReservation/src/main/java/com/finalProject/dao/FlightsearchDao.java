@@ -11,6 +11,6 @@ public interface FlightsearchDao {
 	public FlightSearch getFlightById(Long id);
 	public boolean saveFlight(FlightSearch flightsearch);
 	public boolean deleteFlightById(Long id);
+	public boolean editFlightById(Long id);	 
 	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc);
-	public boolean editFlightById(Long id);	   
 }

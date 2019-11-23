@@ -16,7 +16,7 @@ import com.finalProject.entity.FlightSearch;
 public class FlightServiceImp implements FlightService{
 	
 	private FlightsearchDao fsd;
-	
+
 	@Autowired
 	public FlightServiceImp(FlightsearchDao fsd) {
 		super();
@@ -58,16 +58,6 @@ public class FlightServiceImp implements FlightService{
 	}
 
 	@Override
-	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc) 
-	{
-		
-		List<FlightSearch> fs=new ArrayList<FlightSearch>();
-		fs=fsd.findByFirstnameAndLastName(from_loc, to_loc);
-		return fs;
-		
-	}
-
-	@Override
 	public boolean editFlightById(Long id) {
 		try{	
 			fsd.editFlightById(id);
@@ -77,6 +67,15 @@ public class FlightServiceImp implements FlightService{
 		}
 	}
 	
-	
+
+	@Override
+	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc) 
+	{
+		
+		List<FlightSearch> fs=new ArrayList<FlightSearch>();
+		fs=fsd.findByFirstnameAndLastName(from_loc, to_loc);
+		return fs;
+		
+	}
 
 }

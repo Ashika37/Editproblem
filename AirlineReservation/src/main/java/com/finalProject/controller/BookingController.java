@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.finalProject.entity.FlightSearch;
-
+import com.finalProject.entity.FromTo;
 import com.finalProject.service.FlightService;
 
 @Controller
@@ -34,21 +34,24 @@ public class BookingController {
 	}
 
 	@RequestMapping(value = "/homepage", method = RequestMethod.POST)
-	public ModelAndView displaySearchForm() {
+	public ModelAndView displayNewFlightForm() {
 		ModelAndView mv = new ModelAndView("homepage");
-		mv.setViewName("homepage");
+		mv.addObject("headerMessage", "Add Flight Details");
+		mv.addObject("flightdetails", new FromTo());
 		return mv;
 	}
 	
-	@RequestMapping(value = "/allFlightList", method = RequestMethod.POST)
-	public ModelAndView displayAllFlightDetail(@PathVariable("allFlightList") String from_loc, @PathVariable("allFlightList") String to_loc) {
-		System.out.println("Admin Requested : All Flights");
-		ModelAndView mv = new ModelAndView();
-		List<FlightSearch> flightList = flightservice.findByFirstnameAndLastName(from_loc, to_loc);
-		mv.addObject("fList", flightList);
-		mv.setViewName("allFlightList");
-		return mv;
-	}
+	@RequestMapping(value="/searchform",method=RequestMethod.POST)//allFlightList/{from_loc}/{to_loc}
+		public ModelAndView viewallflights(@ModelAttribute FromTo ft,BindingResult result){
+			ModelAndView mv=new ModelAndView("allFlightList");
+			String from_loc=ft.getFrom();
+			String to_loc=ft.getTo();
+			System.out.println(from_loc+" a "+to_loc);
+			List<FlightSearch> list=flightservice.findByFirstnameAndLastName(from_loc, to_loc);
+			mv.addObject("list", list);
+			mv.setViewName("allFlightList");
+			return mv;
+		}
 	
 
 }

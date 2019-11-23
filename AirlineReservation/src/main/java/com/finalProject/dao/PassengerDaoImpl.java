@@ -14,13 +14,14 @@ public class PassengerDaoImpl extends AbstractDao<Long, Passenger> implements Pa
 		List<Passenger> passenger =getEntityManager().createQuery("SELECT u FROM Passenger u ").getResultList();
 		return passenger;
 	}
-	
+
 	@Override
 	public Passenger getPassengerById(Long id) {
 		Passenger passenger =(Passenger) getEntityManager()
                 .createQuery("SELECT u FROM Passenger u WHERE u.passenger_id LIKE :Id")
                 .setParameter("Id",id)
-                .getSingleResult();		
+                .getSingleResult();
+		
 		return passenger;
 	}
 
@@ -30,7 +31,7 @@ public class PassengerDaoImpl extends AbstractDao<Long, Passenger> implements Pa
 		return true;
 	}
 
-	/*@Override
+	@Override
 	public boolean deletePassengerById(Long id) {
 		Passenger passenger =(Passenger) getEntityManager()
                 .createQuery("SELECT u FROM Passenger u WHERE u.passenger_id LIKE :Id")
@@ -38,6 +39,6 @@ public class PassengerDaoImpl extends AbstractDao<Long, Passenger> implements Pa
                 .getSingleResult();
 		delete(passenger);
 		return true;
-	}*/
+	}
 
 }

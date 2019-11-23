@@ -16,6 +16,7 @@ import com.finalProject.entity.Passenger;
 @Transactional
 public class PassengerServiceImp implements PassengerService {
 	
+	
 	private PassengerDao psd;
 	
 
@@ -55,7 +56,7 @@ public class PassengerServiceImp implements PassengerService {
 		}
 	}
 
-	/*@Override
+	@Override
 	public boolean deletePassengerById(Long id) {
 		try{
 			psd.deletePassengerById(id);
@@ -65,7 +66,7 @@ public class PassengerServiceImp implements PassengerService {
 		{
 			return false;
 		}
-	}*/
+	}
 	
 	
 

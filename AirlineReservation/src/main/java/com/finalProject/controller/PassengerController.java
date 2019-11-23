@@ -20,7 +20,7 @@ import com.finalProject.service.PassengerService;
 @Controller
 public class PassengerController {
 	
-	private PassengerService passengerservice;
+private PassengerService passengerservice;
 	
 	public PassengerController(){
 		
@@ -42,6 +42,16 @@ public class PassengerController {
 		mv.setViewName("allPassenger");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/allPassenger", method = RequestMethod.GET)
+	public ModelAndView displayAllPassenger1() {
+		System.out.println("Admin Requested : All Passenger");
+		ModelAndView mv = new ModelAndView();
+		List<Passenger> passengerList = passengerservice.getAllPassenger();
+		mv.addObject("passengerList", passengerList);
+		mv.setViewName("allPassenger");
+		return mv;
+	}
 
 	@RequestMapping(value = "/addPassenger", method = RequestMethod.GET)
 	public ModelAndView displayNewPassengerForm() {
@@ -53,7 +63,7 @@ public class PassengerController {
 	
 	@RequestMapping(value = "/addPassenger", method = RequestMethod.POST)
 	public ModelAndView saveNewPassenger(@ModelAttribute Passenger passenger, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/home");
+		ModelAndView mv = new ModelAndView("redirect:/allPassenger");
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
@@ -67,5 +77,6 @@ public class PassengerController {
 
 		return mv;
 	}
+	
 
 }

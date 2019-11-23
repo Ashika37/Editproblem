@@ -12,7 +12,7 @@
 	<br>
 	<br>
 	
-	<a href="${pageContext.request.contextPath}/home">Home</a>
+	<a href="${pageContext.request.contextPath}/addPassenger">Home</a>
 	<br>
 	<h3>List of all Passengers</h3>
 	${message}
@@ -22,8 +22,9 @@
 		<thead>
 			<tr>
 				<th>Passenger ID</th>
+				<th>Passenger Salutation</th>
 				<th>Passenger Name</th>
-				<th>Age</th>
+				<th>Passenger Sirname</th>
 				<th>Gender</th>
 				
 			</tr>
@@ -33,8 +34,9 @@
 			<c:forEach var="passenger" items="${passengerList}">
 				<tr>
 					<td>${passenger.passenger_id}</td>
+					<td>${passenger.salutation}</td>
 					<td>${passenger.passenger_name}</td>
-					<td>${passenger.age}</td>
+					<td>${passenger.passenger_sirname}</td>
 					<td>${passenger.gender}</td>
 					
 					</tr>

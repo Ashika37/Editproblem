@@ -12,4 +12,5 @@ public interface FlightService {
 	public boolean deleteFlightById(Long id);
 	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc);
 	public boolean editFlightById(Long id);
+
 }

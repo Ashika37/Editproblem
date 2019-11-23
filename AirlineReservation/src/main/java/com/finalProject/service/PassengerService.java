@@ -10,7 +10,7 @@ public interface PassengerService {
 	public List<Passenger> getAllPassenger();
 	public Passenger getPassengerById(Long id);
 	public boolean savePassenger(Passenger passenger);
-	//public boolean deletePassengerById(Long id);
+	public boolean deletePassengerById(Long id);
 	
 
 }

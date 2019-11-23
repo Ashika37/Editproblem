@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -165,7 +167,7 @@ nav:after {
 		}
 </style>
 <body>
-<form name="form" method="post">
+<form name="form" method="post" action="searchform" modelAttribute="flightdetails"><!-- modelAttribute="flightdetails" -->
 <div style="padding-top: 25px;">
   <nav>
     <div class="logo">Logo</div>
@@ -195,9 +197,9 @@ nav:after {
 	<br>
 		<div style="display:flex;width:50%;margin:0 auto;">
 		<div style="margin-right:10px;width:50%">
-					<label>From</label>
+					<label >From</label><input type="text" name="from"/>
 					<br>
-         		<select id="from_loc" class="form-control1 css1" onchange="updateSelect(this,'to_loc');" name="indication_subject[];">
+         		<!-- <select class="form-control1 css1" onchange="updateSelect(this,'to_loc');" name="from">
 					<option value="selected">Select</option>
 					<option value="1">Delhi</option>
 					<option value="2">Jaipur</option>
@@ -205,17 +207,18 @@ nav:after {
 					<option value="4">Bangalore</option>
 					<option value="5">Pune</option>
 			</select>
+			 -->
 		</div>
 		<div style="margin-left: 10px;width: 50%">
-					<label>To</label>
-          		<select id="to_loc" class="form-control1 css1" onchange="updateSelect(this,'from_loc');" name="indication_subject[];">
+					<label >To</label><input type="text" name="to"/>
+          		<!-- <select class="form-control1 css1" onchange="updateSelect(this,'from_loc');" name="to">
 					<option value="selected">Select</option>
 					<option value="1">Delhi</option>
 					<option value="2">Jaipur</option>
 					<option value="3">Agra</option>
 					<option value="4">Bangalore</option>
 					<option value="5">Pune</option>
-			</select>
+			</select>  -->
           	
 		</div>
 	</div>
@@ -240,6 +243,9 @@ nav:after {
 	
 		<div class ="button1" style="width:50%;margin:0 auto;text-align:center;margin-top: 20px;padding:15px;">
 		<input type="submit" class="btn1" value="SUBMIT">
+	
+		
+			
 	</div>
 	</form>
    </div>
@@ -264,6 +270,10 @@ nav:after {
 		return;
 		}
 			otherSelect.options[changedSelect.selectedIndex].disabled=true;
+		}
+		function fetchdata(){
+			var from = document.getElementById('from_loc').innerHTML;
+			var to = document.getElementById('to_loc').innerHTML;
 		}
 </script>
 </body>

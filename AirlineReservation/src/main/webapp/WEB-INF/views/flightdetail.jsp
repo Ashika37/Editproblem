@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Flight List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>FlightDetail</title>
+</head>
 <style>
 body {
 	 
@@ -60,7 +61,7 @@ font-family: 'lato', sans-serif;
 }
 
 body {
-  background-image: url(file:///C:/Users/pcuser/Downloads/Airline/AirlineReservation/src/main/webapp/WEB-INF/images/img13.jpg);
+  background-image: url(http://www.dreamsyntax.org/wp-content/uploads/2019/08/dd914c6cca076f8cebb463a81e73e7e5.jpg);
   -webkit-background-size:cover;
   background-size:cover;
   background-position: center center;
@@ -178,26 +179,24 @@ a:hover, a:active {
   background-color: #f44336;
 }
 </style>
-</head>
 <body>
-
 <form:form method="post" action="passengerDetail" modelAttribute="flightdetails">
 <div class="custom-padding">
   <nav>
     <div class="logo">Logo</div>
 
     <ul class="menu-area">
-      <li><a href="#">LOGGED IN</a></li>
-
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
     </ul>
   </nav>
 </div>
 
-
-      <div style="padding-top:20px;padding-left:100px;">
+ <div>
+  
 		<h3>FLIGHT DETAILS</h3>
 		</div>
-		<div style="padding-top:20px;padding-left:100px;">
+	
 		<table class="flat-table">
 		<thead>
 			<tr> 
@@ -211,7 +210,7 @@ a:hover, a:active {
 		</thead>
 		
 		<tbody>
-		<c:forEach var="flightdetails" items="${list}">
+		<c:forEach var="flightdetails" items="${flightdetails}">
 				<tr>
 					
 					<td class="col col-1">${flightdetails.flight_name}</td>
@@ -226,10 +225,9 @@ a:hover, a:active {
 				
 			</c:forEach>
 		</tbody>
-		</div>
-			</table>
+ 
+ 
+ 
  </form:form>
-
-
 </body>
 </html>
