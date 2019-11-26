@@ -216,7 +216,7 @@ input[type=submit]:hover {
 
 
 </style>
-<body onload='document.form1.text1.focus()'>
+<body>
 
 <form name="form" action="Ticket" method="post">
 <div style="padding-top: 25px;">
@@ -241,7 +241,6 @@ input[type=submit]:hover {
 
 
 <input type="hidden" value="${passenger.passenger_id}"  name = "passenger_id" readonly/>
-
 
 <label style="color:white;">Card Number</label>
 <input type="text" name="cardname" placeholder="Card Number" required="required"/>&nbsp;&nbsp;<br>

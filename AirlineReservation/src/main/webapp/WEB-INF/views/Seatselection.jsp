@@ -506,7 +506,7 @@ padding:15px 50px;
 </style>
 
 <body onload="onLoaderFunc()">
- <form:form method="POST" action="Passenger" modelAttribute="flightdetails">
+ <form:form method="POST" action="addPassenger" modelAttribute="flightdetails">
         
 <div class="custom-padding">
   <nav>
@@ -548,8 +548,6 @@ padding:15px 50px;
 </center>
 </div>
 </div>
-
-
 </div>
 
 <div class="divstyle1">

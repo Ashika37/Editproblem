@@ -42,17 +42,17 @@ public class RegisterController {
 		this.registerService = registerService;
 	}
 	@RequestMapping(path = "/Loginuser")
-	public String registration(@RequestParam("firstname") String firstname, @RequestParam("Password") String Password,  Map model,ModelMap uname ) {
+	public ModelAndView registration(@RequestParam("firstname") String firstname, @RequestParam("Password") String Password,  Map model, ModelMap uname ) {
 		try{
 		Register register = loginService.get(firstname,Password);
 		model.put("register", register);
 		 name=register.getFirstname();
 		 uname.addAttribute("name",name);
-		
-	}
-		catch(Exception e){System.out.println("Wrong credentials");}
-		return "homepage1";
-	}
+		 return new ModelAndView("homepage1");
+		}catch(Exception e){
+			return new ModelAndView("Loginuser");
+		}
+		}
 
 	@RequestMapping(value = "/Registeruser", method = RequestMethod.GET)
 	public ModelAndView displayAllFlight() {

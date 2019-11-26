@@ -127,9 +127,8 @@ html,body {
 
 .divstyle {
  border-radius: 15px;
-  background-color: #f2f2f2;
   padding: 30px;
-  background-color: #cfd6cb;
+  background-color: #3b3f3f;
 position:absolute; left:100px;
 }
 
@@ -188,7 +187,7 @@ label {
 }
 
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #81a9d6;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -250,33 +249,33 @@ input[type=submit]:hover {
     </ul>
   </nav>   
 </div><br>
-<h2 style="color:black;font-family:oldman;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Registration</h2>
+<h2 style="color:white;font-family:oldman;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Registration</h2>
 
 <div class="divstyle">
-<h3 style="color:black;">User Details</h3>
+<h3 style="color:white;">User Details</h3>
 
 
-<label>User First Name</label>
+<label style="color:white;">User First Name</label>
 <input type="text" name="firstname" placeholder="Enter your First Name" required/>&nbsp;&nbsp;<br>
 
 
 
-<label>User Last Name</label>
+<label style="color:white;">User Last Name</label>
 <input type="text" name="lastname" placeholder="Enter your Last Name" required/>&nbsp;&nbsp;<br>
 
 
 
-<label>Mobile Number</label>
+<label style="color:white;">Mobile Number</label>
 <input  type="tel" name="mobile_no" placeholder="Enter your Phone no." pattern="[0-9]{10}" required/>&nbsp;&nbsp;<br>
 
 
 
-<label>Email Id</label>
+<label style="color:white;">Email Id</label>
 <input type="email" name="email_id" placeholder="Enter your Email Id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>&nbsp;&nbsp;<br>
 
- <label>Password</label>
+ <label style="color:white;">Password</label>
  <input type="password" name="Password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/><br>
- 
+ <br>
  <input type="submit" value="Confirm"  onclick="phonenumber(document.form1.text1)"></input>
 </div>
 </form>

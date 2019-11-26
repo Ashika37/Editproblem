@@ -277,7 +277,6 @@ nav:after {
 				<th>DURATION</th>
 				<th>PRICE</th>
 				<th></th>
-				<th></th>
 			</tr>
 		</thead>
 		
@@ -293,8 +292,7 @@ nav:after {
 					<td >${flightdetails.arrival_time}</td>
 					<td>${flightdetails.duration}</td>
 					<td>${flightdetails.price}</td>
-					<td>
-					<a href="${pageContext.request.contextPath}/editFlight/${flightdetails.flight_id}">Edit</a></td>
+
 					<td><a
 						href="${pageContext.request.contextPath}/deleteFlight/${flightdetails.flight_id}">Delete</a></td>
 				</tr>

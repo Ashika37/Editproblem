@@ -261,11 +261,8 @@ padding:15px 50px;
   <nav>
      <div class="logo"> 
     Fly Height&nbsp;&nbsp;&nbsp;
-	
     </div>
-
     <ul class="menu-area">
-
     </ul>
   </nav>
 </div>
@@ -285,7 +282,6 @@ padding:15px 50px;
              	<td>
                     <td><form:label path="flight_id"></form:label></td>
                     <td><input type="hidden" path="flight_id" value= "<%=val %>" /></td>
-                 
                     </td>
 			</tr>
              <tr>
@@ -379,20 +375,12 @@ padding:15px 50px;
             </table>          
       </div>
       </div> 
- 
- 
   </div>    
         </form:form>
-
-
-
 <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
-
 for (i = 0; i < 1 ; i++) {
-
-
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;

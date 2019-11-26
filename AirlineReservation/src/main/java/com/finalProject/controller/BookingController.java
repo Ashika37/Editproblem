@@ -41,13 +41,13 @@ public class BookingController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/searchform",method=RequestMethod.POST)//allFlightList/{from_loc}/{to_loc}
+	@RequestMapping(value="/searchform",method=RequestMethod.POST)
 	public ModelAndView viewallflights(@ModelAttribute FromTo ft,BindingResult result){
 		ModelAndView mv=new ModelAndView("allFlightList");
 		String from_loc=ft.getFrom();
 		String to_loc=ft.getTo();
 		String flight_date = ft.getDate1();
-		System.out.println(from_loc+" a "+to_loc+ " b "+flight_date);
+		//System.out.println(from_loc+" a "+to_loc+ " b "+flight_date);
 		List<FlightSearch> list=flightservice.findByFirstnameAndLastName(from_loc, to_loc,flight_date);
 		mv.addObject("list", list);
 		mv.setViewName("allFlightList");

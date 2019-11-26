@@ -203,11 +203,11 @@ nav:after {
 			<label>Trip</label>
 		</div>
 		<div style="width:40%">
-			<input type="radio" name="choice" onchange="disable()">
+			<input type="radio" name="choice">
 			<label>One way</label>
 		</div>
 		<div style="width: 40%">
-			<input type="radio" name="choice" onchange="enable()">
+			<input type="radio" name="choice">
 			<label>Round Trip</label>
 		</div>
 	</div>
@@ -259,16 +259,13 @@ nav:after {
 		    if(month < 10)
 		        month = '0' + month.toString();
 		    if(day < 10)
-		        day = '0' + day.toString();
-		    
-		    var minDate= year + '-' + month + '-' + day;
-		    
+		        day = '0' + day.toString();	    
+		    var minDate= year + '-' + month + '-' + day;	    
 		    $('#fromdate').attr('min', minDate);
 		}
 
-		function updateSelect(changedSelect,selectId) { 
-			var otherSelect=document.getElementById(selectId);
-		
+		<!-- function updateSelect(changedSelect,selectId) { 
+			var otherSelect=document.getElementById(selectId);	
 		for(var i=0;i<otherSelect.options.length;++i)
 		{
 			otherSelect.options[i].disabled==false;
@@ -278,22 +275,7 @@ nav:after {
 		return;
 		}
 			otherSelect.options[changedSelect.selectedIndex].disabled=true;
-		}
-		function fetchdata(){
-			var from = document.getElementById('from').innerHTML;
-			var to = document.getElementById('to').innerHTML;
-		}
-		
-		function checkdate()
-		{
-			var from1 = document.getElementById('from').innerHTML;
-			 if (from1 == "Delhi") {
-				    alert("No flights");
-				    return false;
-				  }
-			
-		}
-		
+		}-->
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>

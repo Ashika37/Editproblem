@@ -33,13 +33,6 @@ public class FlightController {
 	public FlightController(FlightService flightservice) {
 		this.flightservice = flightservice;
 	}
-	
-	/*@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-	public ModelAndView hello(HttpServletResponse response) throws IOException {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("home");
-		return mv;
-	}*/
 		
 	@RequestMapping(value = "/allFlights", method = RequestMethod.POST)
 	public ModelAndView displayAllFlight() {
@@ -61,7 +54,6 @@ public class FlightController {
 		return mv;
 	}
 	
-
 	@RequestMapping(value = "/addFlight", method = RequestMethod.GET)
 	public ModelAndView displayNewFlightForm() {
 		ModelAndView mv = new ModelAndView("addFlight");
@@ -86,8 +78,14 @@ public class FlightController {
 
 		return mv;
 	}
-	
-	
+	@RequestMapping(value = "/deleteFlight/{id}", method = RequestMethod.GET)
+	public ModelAndView deleteFlightById(@PathVariable Long id) {
+		boolean isDeleted = flightservice.deleteFlightById(id);
+		System.out.println("Flight deletion respone: " + isDeleted);
+		ModelAndView mv = new ModelAndView("redirect:/allFlights");
+		return mv;
+
+	}
 	/*@RequestMapping(value = "/editFlight/{id}", method = RequestMethod.GET)
 	public ModelAndView displayEditFlightForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("editFlight");
@@ -96,8 +94,7 @@ public class FlightController {
 		mv.addObject("flightdetails", flightsearch);
 		return mv;
 	}
-	
-	
+
 	
 	@RequestMapping(value = "/editFlight/{id}", method = RequestMethod.POST)
 	public ModelAndView saveEditedUser(@ModelAttribute FlightSearch flightsearch, BindingResult result,@PathVariable Long id) {
@@ -116,12 +113,13 @@ public class FlightController {
 		return mv;
 	}*/
 	
-	@RequestMapping(value = "/deleteFlight/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteFlightById(@PathVariable Long id) {
-		boolean isDeleted = flightservice.deleteFlightById(id);
-		System.out.println("Flight deletion respone: " + isDeleted);
-		ModelAndView mv = new ModelAndView("redirect:/allFlights");
-		return mv;
+	
+	/*@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+public ModelAndView hello(HttpServletResponse response) throws IOException {
+	ModelAndView mv = new ModelAndView();
+	mv.setViewName("home");
+	return mv;
+}*/
+	
 
-	}
 }
