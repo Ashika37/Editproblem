@@ -13,7 +13,7 @@
       }
       
       body{
-      background-image: url('file:///C:/Users/pcuser/Downloads/Airline/AirlineReservation/src/main/webapp/WEB-INF/images/img13.jpg'); 
+      background-image: url(https://media.defense.gov/2013/May/10/2000050859/-1/-1/0/130510-F-AM292-012.JPG); 
       background-repeat: no-repeat;
       background-size: cover;
       }
@@ -46,7 +46,6 @@
       
       .banner {
       position: relative;
-     
       background-size: cover;
       }
 
@@ -75,9 +74,9 @@
       
 		 h3 {
    		color: white;
-   		font-size: 20px;
-   		font-weight: 300;
-   		font-family:Impact, fantasy; 
+   		font-size: 26px;
+   		font-weight: 350;
+   		font-family:Forte; 
 		}
 
 		.table-fill {
@@ -116,6 +115,17 @@
   			border-bottom: 1px solid #C1C3D1;
   			opacity:5.0;
 		}
+		
+		td1 {
+			background:#EBEBEB;
+  			padding:15px;
+  			text:centre;
+  			font-size:14px;
+  			border-right: 1px solid #C1C3D1;
+  			border-left: 1px solid #C1C3D1;
+  			border-bottom: 1px solid #C1C3D1;
+  			opacity:5.0;
+		}
 		.button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -130,7 +140,7 @@
 }
 
 a:link, a:visited {
-  background-color: #f44336;
+  background-color: #4599c7;
   color: white;
   padding: 14px 25px;
   text-align: center;
@@ -138,22 +148,122 @@ a:link, a:visited {
   display: inline-block;
 }
 
-a:hover, a:active {
-  background-color: red;
+
+
+nav {
+  position: relative;
+  width: calc(100% - 60px);
+  margin: 0 auto;
+  padding: 20px 0;
+  background: black;
+  z-index: 1;
+  text-align: right;
+  padding-right: 2%;
+  opacity: 0.7;
+}
+
+.logo {
+  width: 25%;
+  float: left;
+font-family:Lucida Calligraphy;
+  text-align: left;
+  color:white;
+  font-size:35px;
+  padding-left: 2%;
+}
+
+
+.menu-area li {
+  display: inline-block;
+}
+
+.menu-area a {
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  padding: 1 27px;
+  font-size: 14px;
+  line-height: 21px;
+  position: relative;
+  z-index: 1;
+  
+}
+.menu-area a:hover {
+
+  color: #fff;
+}
+
+.menu-area a:hover:after {
+  transform: translateY(-50%) rotate(-35deg);
+}
+
+nav:before {
+  position: absolute;
+  content: '';
+  border-top: 10px solid #333;
+  border-right: 10px solid #333;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  top: 100%;
+  left: 0;
+}
+
+nav:after {
+  position: absolute;
+  content: '';
+  border-top: 10px solid #333;
+  border-left: 10px solid #333;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  top: 100%;
+  right: 0;
+}
+.link-area
+{
+  position:fixed;
+  bottom:20px;
+  left:20px;  
+  padding:15px;
+  border-radius:40px;
+  background:tomato;
+}
+.link-area a
+{
+  text-decoration:none;
+  color:#fff;
+  font-size:25px;
+}
+
+*, *:after, *:before {
+	box-sizing: box-sizing;
 }
     </style>
 </head>
 
   <body>
-  
-  <div class="testbox">
-  	 <a href="${pageContext.request.contextPath}/addFlight" target="_blank">Add Flight</a>
-   </div>    
+  <div style="padding-top: 25px;">
+  <nav>
+    <div class="logo"> 
+    Fly Height&nbsp;&nbsp;&nbsp;
 	
+    </div>
+    <ul class="menu-area">
+    <li> <a style="border: 2px solid #f8f9ff;" href="${pageContext.request.contextPath}/addFlight">Add Flight</a></li>
+      <li> <a style="border: 2px solid #f8f9ff;" href="${pageContext.request.contextPath}/PassengerList">View Passenger</a></li>
+        	  <li><a style="border: 2px solid #f8f9ff;" href="${pageContext.request.contextPath}/homepage" >LOGOUT</a></li>
+    </ul>
+  </nav>
+</div>
+  <div class="testbox">
+
+   </div>    
+		<center>
 	<div class="table-title">
 		<h3>FLIGHT DETAILS</h3>
 		</div>
-	
+
 		<table class="table-fill">
 		<thead>
 			<tr>
@@ -165,6 +275,9 @@ a:hover, a:active {
 				<th>DEPARTURE TIME</th>
 				<th>ARRIVAL TIME</th>
 				<th>DURATION</th>
+				<th>PRICE</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		
@@ -177,8 +290,9 @@ a:hover, a:active {
 					<td>${flightdetails.to_loc}</td>
 					<td>${flightdetails.flight_date}</td>
 					<td>${flightdetails.departure_time}</td>
-					<td>${flightdetails.arrival_time}</td>
+					<td >${flightdetails.arrival_time}</td>
 					<td>${flightdetails.duration}</td>
+					<td>${flightdetails.price}</td>
 					<td>
 					<a href="${pageContext.request.contextPath}/editFlight/${flightdetails.flight_id}">Edit</a></td>
 					<td><a
@@ -188,7 +302,7 @@ a:hover, a:active {
 			</c:forEach>
 		</tbody>
 	</table>
-  
+  </center>
 	
 </div>
 </body>

@@ -5,13 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SEAT SELECTION</title>
+<title>seat</title>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+</head>
 
 <style>
+
 
 body
 {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-image: url(https://wallpaperaccess.com/full/104815.jpg); 
+      background-repeat: no-repeat;
+      background-size: cover;
 }
 
 #Username
@@ -123,12 +129,12 @@ nav {
 }
 
 .logo {
-  width: 15%;
+  width: 25%;
   float: left;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 25px;
+font-family:Lucida Calligraphy;
   text-align: left;
+  color:white;
+  font-size:35px;
   padding-left: 2%;
 }
 
@@ -181,21 +187,19 @@ nav:after {
 
 .divstyle {
  border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px;
-  background-color: #777777;
+  background-color: #333333;
 position:absolute; 
-left:150px;
+left:100px;
 top:200px;
 }
 
 .divstyle1 {
  border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 16px;
-  background-color: #777777;
+  background-color: #333333;
   position:absolute; 
-  right:250px;
+  right:200px;
   top: 200px;
   width:450px;
   height:410px;
@@ -212,7 +216,7 @@ input[type=text],input[type=number], select {
 }
 
 .button {
-    background-color: #242125;
+    background-color: #4e7492;
     border: none;
     color: white;
     padding: 15px;
@@ -224,7 +228,19 @@ input[type=text],input[type=number], select {
     cursor: pointer;
     border-radius: 15px;
 }
-
+.css3 {
+    background-color: #4e7492;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+}
 
 
 
@@ -317,17 +333,9 @@ nav:after {
 
 
 //style for passenger registration
-
 @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
 
-body {
-	margin:0;
-	font-family:arial,tahoma,sans-serif;
-	font-size:12px;
-	font-weight:normal;
-	direction:ltr;
-  background:white;
-}
+
 
 
 
@@ -496,58 +504,83 @@ padding:15px 50px;
 }
 
 </style>
-</head>
-<body onload="onLoaderFunc()">
 
-<form:form method="POST" action="addPassenger" modelAttribute="passenger" >
+<body onload="onLoaderFunc()">
+ <form:form method="POST" action="Passenger" modelAttribute="flightdetails">
+        
 <div class="custom-padding">
   <nav>
-    <div class="logo">Logo</div>
+    <div class="logo"> 
+    Fly Height&nbsp;&nbsp;&nbsp;
+	
+    </div>
 
     <ul class="menu-area">
-      <li><a href="#">Logged In</a></li>
     </ul>
   </nav>
 </div>
 
 
+<h2 style="position:absolute; left:100px; font-family:Segoe Print;font-size:30px">Select seats</h2><br><br><br>
 <div class="divstyle">
 <div class="inputForm">
 
-  <label>Enter User Name</label> <input type="text" id="Username" required><br>
-  Enter Number of Seats <input type="number" id="Numseats" required>
+
+  <label style="color:white;">Enter Number of Seats</label>  <input type="number" id="Numseats" required>
   <br/><br/>
   <button class="button" onclick="takeData()">Confirm</button><br>
 <br><br>
+
 </div>
+<b><%String val= request.getParameter("flight_id"); %></b>
+<div class="displayerBoxes">
+<center>
+  <table class="Displaytable">
+  <tr>
+    <th style="color:white;">Number of Seats</th>
+    <th style="color:white;">Seats</th>
+  </tr>
+  <tr>
+    <td style="background-color:white;"><textarea id="NumberDisplay"></textarea></td>
+    <td style="background-color:white;"><textarea id="seatsDisplay"></textarea></td>
+  </tr>
+</table>
+</center>
+</div>
+</div>
+
+
 </div>
 
 <div class="divstyle1">
  <div class="seatStructure">
+
 <table id="seatsBlock" class="tablestyle">
  <p id="notification"></p>
  <tr>
     <td rowspan="20">
-      <div class="smallBox greenBox">Selected Seat</div> <br/>
+      <div class="smallBox greenBox" style="color:white;">Selected Seat</div> <br/>
      
-      <div class="smallBox emptyBox">Empty Seat</div><br/>
+      <div class="smallBox emptyBox" style="color:white;">Empty Seat</div><br/>
     </td>
     
   
   </tr>
    <tr>
     <td></td>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td></td>
-    <td>4</td>
-    <td>5</td>
-    <td>6</td>
-    <td></td>
-</tr><br> 
+    <td style="color:white;">1</td>
+    <td style="color:white;">2</td>
+    <td style="color:white;">3</td>
+    <td style="color:white;"></td>
+    <td style="color:white;">4</td>
+    <td style="color:white;">5</td>
+    <td style="color:white;">6</td>
+    <td style="color:white;"></td>
+</tr><br>
+ 
+  
 <tr>
-    <td>A</td>
+    <td style="color:white;">A</td>
     <td><input type="checkbox" class="seats" value="A1"></td>
     <td><input type="checkbox" class="seats" value="A2"></td>
     <td><input type="checkbox" class="seats" value="A3"></td>
@@ -560,7 +593,7 @@ padding:15px 50px;
   </tr>
   
   <tr>
-    <td>B</td>
+    <td style="color:white;">B</td>
     <td><input type="checkbox" class="seats" value="B1"></td>
     <td><input type="checkbox" class="seats" value="B2"></td>
     <td><input type="checkbox" class="seats" value="B3"></td>
@@ -573,7 +606,7 @@ padding:15px 50px;
   </tr>
   
   <tr>
-    <td>C</td>
+    <td style="color:white;">C</td>
     <td><input type="checkbox" class="seats" value="C1"></td>
     <td><input type="checkbox" class="seats" value="C2"></td>
     <td><input type="checkbox" class="seats" value="C3"></td>
@@ -584,8 +617,9 @@ padding:15px 50px;
     <td><input type="checkbox" class="seats" value="C6"></td>
   
 </tr>
+  
 <tr>
-    <td>D</td>
+    <td style="color:white;">D</td>
     <td><input type="checkbox" class="seats" value="D1"></td>
     <td><input type="checkbox" class="seats" value="D2"></td>
     <td><input type="checkbox" class="seats" value="D3"></td>
@@ -595,9 +629,10 @@ padding:15px 50px;
     <td><input type="checkbox" class="seats" value="D5"></td>
     <td><input type="checkbox" class="seats" value="D6"></td>
    
-</tr> 
+</tr>
+  
 <tr>
-    <td>E</td>
+    <td style="color:white;">E</td>
     <td><input type="checkbox" class="seats" value="E1"></td>
     <td><input type="checkbox" class="seats" value="E2"></td>
     <td><input type="checkbox" class="seats" value="E3"></td>
@@ -608,9 +643,11 @@ padding:15px 50px;
     <td><input type="checkbox" class="seats" value="E6"></td>
     
 </tr>
+  
 <tr class="seatVGap"></tr>
+  
 <tr>
-    <td>F</td>
+    <td style="color:white;">F</td>
     <td><input type="checkbox" class="seats" value="F1"></td>
     <td><input type="checkbox" class="seats" value="F2"></td>
     <td><input type="checkbox" class="seats" value="F3"></td>
@@ -618,10 +655,11 @@ padding:15px 50px;
     <td></td>
 <td><input type="checkbox" class="seats" value="F4"></td>
     <td><input type="checkbox" class="seats" value="F5"></td>
-    <td><input type="checkbox" class="seats" value="F6"></td> 
+    <td><input type="checkbox" class="seats" value="F6"></td>
+   
 </tr>
 <tr>
-    <td>G</td>
+    <td style="color:white;">G</td>
     <td><input type="checkbox" class="seats" value="G1"></td>
     <td><input type="checkbox" class="seats" value="G2"></td>
     <td><input type="checkbox" class="seats" value="G3"></td>
@@ -629,10 +667,11 @@ padding:15px 50px;
     <td></td>
 <td><input type="checkbox" class="seats" value="G4"></td>
     <td><input type="checkbox" class="seats" value="G5"></td>
-    <td><input type="checkbox" class="seats" value="G6"></td>   
+    <td><input type="checkbox" class="seats" value="G6"></td>
+   
 </tr>
 <tr>
-    <td>H</td>
+    <td style="color:white;">H</td>
     <td><input type="checkbox" class="seats" value="H1"></td>
     <td><input type="checkbox" class="seats" value="H2"></td>
     <td><input type="checkbox" class="seats" value="H3"></td>
@@ -640,89 +679,36 @@ padding:15px 50px;
     <td></td>
 <td><input type="checkbox" class="seats" value="H4"></td>
     <td><input type="checkbox" class="seats" value="H5"></td>
-    <td><input type="checkbox" class="seats" value="H6"></td> 
+    <td><input type="checkbox" class="seats" value="H6"></td>
+   
 </tr>
 <tr>
-    <td>I</td>
+    <td style="color:white;">I</td>
     <td><input type="checkbox" class="seats" value="I1"></td>
     <td><input type="checkbox" class="seats" value="I2"></td>
     <td><input type="checkbox" class="seats" value="I3"></td>
     
     <td></td>
-<td><input type="checkbox" class="seats" value="I4"></td>
+	<td><input type="checkbox" class="seats" value="I4"></td>
     <td><input type="checkbox" class="seats" value="I5"></td>
-    <td><input type="checkbox" class="seats" value="I6"></td>  
+    <td><input type="checkbox" class="seats" value="I6"></td>
+   
 </tr>
-<br>  
+<br>
+  
+  
+  
 </table>
   <br>
 <br/><button onclick="updateTextArea()" class="button">Confirm Selection</button>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="css3" href="addPassenger?flight_id=<%=val%>">Confirm</a>
 </center>
 </div>
 </div>
       
- <div style="padding-top: 600px;padding-left: 100px;">
-  <button type="button" class="collapsible" >Add Passenger 1 Details</button>
-  <div style="padding-left: 100px;" class="content">      
-	<div style="border-style: solid;padding-left:100px;width:880px;">
-             <table>
-             <tr>
-             	<td>
-                    <td><label path="salutation">Title</label></td>
-                    <td><input class="css1" path="salutation"/></td>    
-                    <td><label path="passenger_name">Passenger Name</label></td>
-                    <td><input class="css1" path="passenger_name"/></td>
-                    </td> &nbsp; &nbsp; &nbsp; &nbsp; 
-			</tr>
-		   <tr>
-				<td>
-                    <td><label path="passenger_sirname">Passenger SurName</label></td>
-                    <td><input class="css1" path="passenger_sirname"/></td>
-               
-                    <td><label path="gender">Gender</label></td>
-                    <td><input class="css1" path="gender"/></td>
-       	       </td>
-       	   </tr>
-                <tr>
-                    <td><input class="css2" type="submit" align="center" value="Submit"/></td>
-                </tr>
-             
-            </table>           
-      </div>
-      </div>
-      
-     <button type="button" class="collapsible" >Add Passenger 2 Details</button>
-  <div style="padding-left: 100px;" class="myDIV">      
-	<div style="border-style: solid;padding-left:100px;width:880px;">
-             <table>
-             <tr>
-             	<td>
-                    <td><label path="salutation">Title</label></td>
-                    <td><input class="css1" path="salutation"/></td>    
-                    <td><label path="passenger_name">Passenger Name</label></td>
-                    <td><input class="css1" path="passenger_name"/></td>
-                    </td>  &nbsp; &nbsp; &nbsp; &nbsp; 
-			</tr>
-		   <tr>
-				<td>
-                    <td><label path="passenger_sirname">Passenger SurName</label></td>
-                    <td><input class="css1" path="passenger_sirname"/></td>
-               
-                    <td><label path="gender">Gender </label></td>
-                    <td><input class="css1" path="gender"/></td>
-       	       </td>
-       	 </tr>
-                <tr>
-                    <td><input class="css2" type="submit" value="Submit"/></td>
-                </tr>
-             
-            </table>           
-      </div>
-      </div> 
-      </div>
-        </form:form>
+<br/><br/>
 
-
+ 
 
 <script>
 
@@ -733,9 +719,9 @@ function onLoaderFunc()
 }
 function takeData()
 {
-  if (( $("#Username").val().length == 0 ) || ( $("#Numseats").val().length == 0 ))
+  if (( $("#Numseats").val().length == 0 ))
   {
-  alert("Please Enter your Name and Number of Seats");
+  alert("Please Enter Number of Seats");
   }
   else
   {
@@ -757,7 +743,7 @@ function updateTextArea() {
      var allSeatsVals = [];
   
      //Storing in Array
-     allNameVals.push($("#Username").val());
+    // allNameVals.push($("#Username").val());
      allNumberVals.push($("#Numseats").val());
      $('#seatsBlock :checked').each(function() {
        allSeatsVals.push($(this).val());
@@ -779,24 +765,6 @@ function myFunction() {
   alert($("input:checked").length);
 }
 
-/*
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-*/
-
-
 $(":checkbox").click(function() {
   if ($("input:checked").length == ($("#Numseats").val())) {
     $(":checkbox").prop('disabled', true);
@@ -810,7 +778,6 @@ $(":checkbox").click(function() {
 
 
 </script>
-<script src="/AirlineReservation/src/main/resources/js" />"></script>
-
+</form:form>
 </body>
 </html>

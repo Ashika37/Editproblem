@@ -23,10 +23,10 @@ public class FlightSearch {
 	private String departure_time;
 	private String arrival_time;
 	private String duration;
+	private String price;
 	public FlightSearch() {
 	
 	}
-	
 	
 	public FlightSearch(String to_loc, String from_loc) {
 		
@@ -81,12 +81,25 @@ public class FlightSearch {
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
+	
+	public String getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+
 	@Override
 	public String toString() {
 		return "FlightSearch [flight_id=" + flight_id + ", flight_name=" + flight_name + ", to_loc=" + to_loc
 				+ ", from_loc=" + from_loc + ", flight_date=" + flight_date + ", departure_time=" + departure_time
-				+ ", arrival_time=" + arrival_time + ", duration=" + duration + "]";
+				+ ", arrival_time=" + arrival_time + ", duration=" + duration + ", price=" + price + "]";
 	}
+
+
 	
 	
 	

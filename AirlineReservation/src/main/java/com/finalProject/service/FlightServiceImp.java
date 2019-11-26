@@ -69,11 +69,11 @@ public class FlightServiceImp implements FlightService{
 	
 
 	@Override
-	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc) 
+	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc, String date1) 
 	{
 		
 		List<FlightSearch> fs=new ArrayList<FlightSearch>();
-		fs=fsd.findByFirstnameAndLastName(from_loc, to_loc);
+		fs=fsd.findByFirstnameAndLastName(from_loc, to_loc,date1);
 		return fs;
 		
 	}

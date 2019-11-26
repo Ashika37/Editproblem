@@ -8,18 +8,18 @@
 <title>ADD FLIGHT DETAILS</title>
 <style>
   body, div, form,  p { 
-      font-family:Copperplate,Copperplate Gothic Light,fantasy;
+      font-family:Constantia;
       line-height: 30px;
       }
       
       body{
-      background-image: url('file:///C:/Users/pcuser/Downloads/Airline/AirlineReservation/src/main/webapp/WEB-INF/images/img10.jpeg'); 
+      background-image: url(https://wallpaperaccess.com/full/254448.jpg); 
       background-repeat: no-repeat;
       background-size: cover;"
       }
       h1 {
       font-size: 32px;
-      color:#464b5a;
+      color:white;
       z-index: 2;
       text-align :center;
       padding-left:3px;
@@ -29,7 +29,7 @@
       }
       h2 {
       font-weight: 400;
-      color:#35366f;
+      color:white;
       }
       .testbox {
       padding: 20px;
@@ -37,11 +37,12 @@
       }
       
       form {
-      width: 50%;
+      width: 40%;
       padding: 20px;
       border-radius: 20px;
       box-shadow: 0 0 40px 0 #095484; 
-      background: white;
+          background: #1f1c1c;
+    opacity: 0.8;
       }
       
       .banner {
@@ -55,6 +56,7 @@
       border-radius: 5px;
       width: 95%;
       padding: 5px;
+      height: 28px;
       }
 
       .item input:hover{
@@ -80,52 +82,84 @@
 	<div class="testbox">
 	
         <form:form method="POST" action="addFlight" modelAttribute="flightdetails">
-        
+        <center>
           <div class="banner">
           	<h1>ADD FLIGHT DETAILS</h1>
           </div>
         
       	<h2 style="font-family:Oldtown fantasy;font-weight:900;">FLIGHT DETAILS</h2>
-        
+        	</center>
         <div class="item">
-       		 <form:label path="flight_name">Flight Name</form:label>
-       		  <input type="text" name="flight_name"/>
+       		 <form:label path="flight_name" style="font-size:20px;color:white;">Flight Name</form:label>
+       		 <br>
+       		  <input type="text" name="flight_name" required="required"/>
         </div>
-         <br>
+		<br>
          <div class="item">
-       		<form:label path="from_loc">From</form:label>
-       		 <form:input path="from_loc" />
+       		<form:label path="from_loc" style="font-size:20px;color:white;">From</form:label>
+       		<br>
+       		 <form:input path="from_loc" required="required"/>
         </div>
-        <br>
+		<br>
         <div class="item">
-       		<form:label path="to_loc">To</form:label>
-       		<form:input path="to_loc"/>
+       		<form:label path="to_loc" style="font-size:20px;color:white;">To</form:label>
+       		<br>
+       		<form:input path="to_loc" required="required"/>
         </div>
-         <br>
+		<br>
          <div class="item">
-       		<form:label path="flight_date">Date</form:label>
-       		<form:input type="date" path="flight_date"/>
+       		<form:label path="flight_date" style="font-size:20px;color:white;">Date</form:label>
+       		<br>
+       		<form:input type="date" path="flight_date" onclick="dateval()" id="date" required="required"/>
         </div>
-         <br>
+			<br>
           <div class="item">
-       		<form:label path="departure_time">Departure Time</form:label>
-       		 <form:input path="departure_time" />
+       		<form:label path="departure_time" style="font-size:20px;color:white;">Departure Time</form:label>
+       		<br>
+       		 <form:input path="departure_time" required="required"/>
         </div>
-         <br>
+		<br>
         <div class="item">
-       		<form:label path="arrival_time">Arrival Time</form:label>
-       		<form:input path="arrival_time"/>
+       		<form:label path="arrival_time" style="font-size:20px;color:white;">Arrival Time</form:label>
+       		<br>
+       		<form:input path="arrival_time" required="required"/>
         </div>
-         <br>
+			<br>
          <div class="item">
-       		<form:label path="duration">Duration</form:label>
-       		<form:input path="duration"/>
+       		<form:label path="duration" style="font-size:20px;color:white;">Duration</form:label>
+       		<br>
+       		<form:input path="duration" required="required"/>
         </div>
+<br>
+            <div class="item">
+       		<form:label path="price" style="font-size:20px;color:white;">Price</form:label>
+       		<form:input path="price" required="required"/>
+        </div>
+              
          <br>
-         <div class="btn_button">
-          	<input type="submit" value="Add"/>
+         <div style="padding-left:400px;">
+          	<input style="width:90px;" type="submit" value="Add"/>
         </div>
+           </div>
         </form:form>
 </div>
+	<script language="Javascript">		
+		function dateval(){
+		    var dtToday = new Date();
+		    
+		    var month = dtToday.getMonth() + 1;
+		    var day = dtToday.getDate();
+		    var year = dtToday.getFullYear();
+		    if(month < 10)
+		        month = '0' + month.toString();
+		    if(day < 10)
+		        day = '0' + day.toString();
+		    
+		    var minDate= year + '-' + month + '-' + day;
+		    
+		    $('#date').attr('min', minDate);
+		}	
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>

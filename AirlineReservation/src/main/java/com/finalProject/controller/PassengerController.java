@@ -1,9 +1,10 @@
 package com.finalProject.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 
-
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,9 +32,7 @@ private PassengerService passengerservice;
 		this.passengerservice = passengerservice;
 	}
 	
-	
-	
-	@RequestMapping(value = "/allPassenger", method = RequestMethod.POST)
+	@RequestMapping(value = "/allPassenger", method = RequestMethod.GET)
 	public ModelAndView displayAllPassenger() {
 		System.out.println("Admin Requested : All Passenger");
 		ModelAndView mv = new ModelAndView();
@@ -43,13 +42,13 @@ private PassengerService passengerservice;
 		return mv;
 	}
 	
-	@RequestMapping(value = "/allPassenger", method = RequestMethod.GET)
+	@RequestMapping(value = "/PassengerList", method = RequestMethod.GET)
 	public ModelAndView displayAllPassenger1() {
 		System.out.println("Admin Requested : All Passenger");
 		ModelAndView mv = new ModelAndView();
 		List<Passenger> passengerList = passengerservice.getAllPassenger();
 		mv.addObject("passengerList", passengerList);
-		mv.setViewName("allPassenger");
+		mv.setViewName("PassengerList");
 		return mv;
 	}
 
@@ -63,7 +62,7 @@ private PassengerService passengerservice;
 	
 	@RequestMapping(value = "/addPassenger", method = RequestMethod.POST)
 	public ModelAndView saveNewPassenger(@ModelAttribute Passenger passenger, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/allPassenger");
+		ModelAndView mv = new ModelAndView("Payment");
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
@@ -78,5 +77,12 @@ private PassengerService passengerservice;
 		return mv;
 	}
 	
+	
+	/*@RequestMapping(value = { "/", "/PassengerList" }, method = RequestMethod.GET)
+	public ModelAndView hello09(HttpServletResponse response) throws IOException {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("PassengerList");
+		return mv;
+	}*/
 
 }

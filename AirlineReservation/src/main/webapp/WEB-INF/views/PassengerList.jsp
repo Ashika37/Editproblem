@@ -1,18 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>FlightDetail</title>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Flight List</title>
 <style>
 body {
 	 
 font-family: 'lato', sans-serif;
 }
- 
+  h3 {
+   		color: black;
+   		font-size: 39px;
+   		font-weight: 350;
+   		font-family:Forte;
+   		padding-right:70px; 
+		}
 .flat-table {
 	 display: block;
 	 font-family: sans-serif;
@@ -22,11 +27,12 @@ font-family: 'lato', sans-serif;
 	 width: auto;
 }
  .flat-table th {
-	 background-color: #70c469;
+	 background-color: #333333;
 	 color: white;
 	 font-weight: normal;
 	 padding: 20px 30px;
 	 text-align: center;
+	 font-family:Segoe Print;
 }
  .flat-table td {
 	 background-color: #eee;
@@ -61,7 +67,7 @@ font-family: 'lato', sans-serif;
 }
 
 body {
-  background-image: url(http://www.dreamsyntax.org/wp-content/uploads/2019/08/dd914c6cca076f8cebb463a81e73e7e5.jpg);
+  background-image: url(https://www.rd.com/wp-content/uploads/2017/01/01_Plane_Heres_The_fastest_way_to_board_a_plane_175199441_EXTREME-PHOTOGRAPHER-1024x683.jpg);
   -webkit-background-size:cover;
   background-size:cover;
   background-position: center center;
@@ -85,7 +91,7 @@ nav {
   position: relative;
   width: calc(100% - 60px);
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 9px 0;
   background: #333;
   z-index: 1;
   text-align: right;
@@ -93,12 +99,12 @@ nav {
 }
 
 .logo {
-  width: 15%;
+  width: 25%;
   float: left;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 25px;
+font-family:Lucida Calligraphy;
   text-align: left;
+  color:white;
+  font-size:35px;
   padding-left: 2%;
 }
 
@@ -179,55 +185,60 @@ a:hover, a:active {
   background-color: #f44336;
 }
 </style>
+</head>
 <body>
-<form:form method="post" action="passengerDetail" modelAttribute="flightdetails">
+<form:form method="post">
 <div class="custom-padding">
   <nav>
-    <div class="logo">Logo</div>
+    <div class="logo"> 
+    Fly Height&nbsp;&nbsp;&nbsp;
+	
+    </div>
 
     <ul class="menu-area">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
+      <li></li>
+
     </ul>
   </nav>
 </div>
-
- <div>
-  
+	<center>
+      <div style="padding-top:20px;padding-left:100px;">
 		<h3>FLIGHT DETAILS</h3>
 		</div>
-	
+		</center>
+		<center>
+		<div style="padding-top:20px;padding-left:10px;">
 		<table class="flat-table">
 		<thead>
 			<tr> 
-				<th class="col col-1">Flight Name</th>
-				<th class="col col-2">FLIGHT DATE</th>
-				<th class="col col-3">DEPARTURE TIME</th>
-				<th class="col col-4">ARRIVAL TIME</th>
-				<th class="col col-5">DURATION</th>
-				<th class="col col-6">Book</th>
+				<th class="col col-1">Passenger ID</th>
+				<th class="col col-2">Passenger Salutation</th>
+				<th class="col col-3">Passenger Name</th>
+				<th class="col col-4">Passenger Surname</th>
+				<th class="col col-5">Gender</th>
+				<th class="col col-6">Seat Number</th>
+				<th class="col col-7">Flight Id</th>
 			</tr>
 		</thead>
-		
 		<tbody>
-		<c:forEach var="flightdetails" items="${flightdetails}">
+		<c:forEach var="passenger" items="${passengerList}">
 				<tr>
-					
-					<td class="col col-1">${flightdetails.flight_name}</td>
-					<td class="col col-2">${flightdetails.flight_date}</td>
-					<td class="col col-3">${flightdetails.departure_time}</td>
-					<td class="col col-4">${flightdetails.arrival_time}</td>
-					<td class="col col-5">${flightdetails.duration}</td>
-					<td>
-					<a href="${pageContext.request.contextPath}/passengerDetail/${flightdetails.flight_name}">Book</a></td>
-					
-				</tr>
-				
+					<tr>
+					<td class="col col-1">${passenger.passenger_id}</td>
+					<td class="col col-2">${passenger.salutation}</td>
+					<td class="col col-3">${passenger.passenger_name}</td>
+					<td class="col col-4">${passenger.passenger_surname}</td>
+					<td class="col col-5">${passenger.gender}</td>
+					<td class="col col-6">${passenger.seat_no}</td>
+					<td class="col col-7">${passenger.flight_id}</td>
+					</tr>
+				</tr>		
 			</c:forEach>
 		</tbody>
- 
- 
- 
+		</div>
+			</table>
+			</div>
+			</center>
  </form:form>
 </body>
 </html>

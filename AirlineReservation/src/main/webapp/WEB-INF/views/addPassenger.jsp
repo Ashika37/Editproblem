@@ -7,6 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>PASSENGER</title>
 <style>
+
+body
+{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-image: url(https://images7.alphacoders.com/978/978155.jpg); 
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
 nav {
   position: relative;
@@ -21,12 +30,12 @@ nav {
 }
 
 .logo {
-  width: 15%;
+  width: 25%;
   float: left;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 25px;
+font-family:Lucida Calligraphy;
   text-align: left;
+  color:white;
+  font-size:35px;
   padding-left: 2%;
 }
 
@@ -105,7 +114,6 @@ body {
 	direction:ltr;
   background:white;
 }
-
 
 
 form label {
@@ -224,11 +232,11 @@ padding:15px 50px;
 
 
 .collapsible {
-  background-color: #777;
+  background-color: #3d4041;
   color: white;
   cursor: pointer;
   padding: 18px;
-  width: 100%;
+  width: 85%;
   border: none;
   text-align: left;
   outline: none;
@@ -240,7 +248,7 @@ padding:15px 50px;
 }
 
 .content {
-  padding: 0 18px;
+
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
@@ -251,11 +259,13 @@ padding:15px 50px;
 
 <div class="custom-padding">
   <nav>
-    <div class="logo">Logo</div>
+     <div class="logo"> 
+    Fly Height&nbsp;&nbsp;&nbsp;
+	
+    </div>
 
     <ul class="menu-area">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
+
     </ul>
   </nav>
 </div>
@@ -264,30 +274,54 @@ padding:15px 50px;
           <br>
         <form:form method="POST" action="addPassenger" modelAttribute="passenger" >
         </table>
-         
-  <button type="button" class="collapsible" >Add Passenger 1 Details</button>
-  <div style="padding-left: 100px;" class="content">      
+        <b><% String val = request.getParameter("flight_id"); %></b>
+        
+   <div style="padding-left:150px;">      
+  <button  type="button" class="collapsible" >Add Passenger 1 Details</button>
+  <div style="width:992px;" class="content">      
 	<div style="border-style: solid;padding-left:100px;width:1000px;">
              <table>
+                <tr>
+             	<td>
+                    <td><form:label path="flight_id"></form:label></td>
+                    <td><input type="hidden" path="flight_id" value= "<%=val %>" /></td>
+                 
+                    </td>
+			</tr>
              <tr>
              	<td>
                     <td><form:label path="salutation">Title</form:label></td>
-                    <td><form:input path="salutation"/></td>    
-                    <td><form:label path="passenger_name">Passenger Name</form:label></td>
-                    <td><form:input path="passenger_name"/></td>
-                    </td> &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <td><form:input path="salutation" required="required"/></td>
+                    
+                    <td><form:label path="gender">Gender</form:label></td>
+                    <td><form:input path="gender" required="required"/></td>
+                    </td>
 			</tr>
 		   <tr>
 				<td>
-                    <td><form:label path="passenger_surname">Passenger SurName</form:label></td>
-                    <td><form:input path="passenger_surname"/></td>
-               
-                    <td><form:label path="gender">Gender</form:label></td>
-                    <td><form:input path="gender"/></td>
+				    <td><form:label path="passenger_name">First Name</form:label></td>
+                    <td><form:input path="passenger_name" required="required"/></td>
+                    
+                    <td><form:label path="passenger_surname">Last Name</form:label></td>
+                    <td><form:input path="passenger_surname" required="required"/></td>
+       	       </td>
+       	   </tr>
+ 			<tr>
+				<td>
+                    <td><form:label path="seat_no">Seat</form:label></td>
+                    <td><form:input path="seat_no" required="required"/></td>
+                    <td><form:label path="mobile_no">Mobile Number</form:label></td>
+                    <td><form:input path="mobile_no" required="required"/></td>
+       	       </td>
+       	   </tr>
+       	   	<tr>
+				<td>
+                    <td><form:label path="email_id">Email Id</form:label></td>
+                    <td><form:input path="email_id" required="required"/></td>
        	       </td>
        	   </tr>
                 <tr>
-                    <td><input type="submit" align="center" value="Submit"/></td>
+                    <td><input style="width:100px;background-color:#086288;color:white;" type="submit" align="center" value="Submit"/></td>
                 </tr>
              
             </table>           
@@ -295,35 +329,59 @@ padding:15px 50px;
       </div>
       
      <button type="button" class="collapsible" >Add Passenger 2 Details</button>
-  <div style="padding-left: 100px;" class="myDIV">      
+  <div style="width:992px;" class="content">      
 	<div style="border-style: solid;padding-left:100px;width:1000px;">
-
-             <table>
+ <table>
+                 <tr>
+             	<td>
+                    <td><form:label path="flight_id"></form:label></td>
+                    <td><form:input type="hidden" path="flight_id" value= "<%=val %>" /></td>
+                 
+                    </td>
+			</tr>
              <tr>
              	<td>
                     <td><form:label path="salutation">Title</form:label></td>
-                    <td><form:input path="salutation"/></td>    
-                    <td><form:label path="passenger_name">Passenger Name</form:label></td>
-                    <td><form:input path="passenger_name"/></td>
-                    </td>  &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <td><input path="salutation"/></td>
+                    
+                         <td><form:label path="gender">Gender</form:label></td>
+                    <td><input path="gender"/></td>
+                    </td>
 			</tr>
 		   <tr>
 				<td>
+				    <td><form:label path="passenger_name">Passenger Name</form:label></td>
+                    <td><input path="passenger_name"/></td>
+                    
                     <td><form:label path="passenger_surname">Passenger SurName</form:label></td>
-                    <td><form:input path="passenger_surname"/></td>
-               
-                    <td><form:label path="gender">Gender</form:label></td>
-                    <td><form:input path="gender"/></td>
+                    <td><input path="passenger_surname" /></td>
        	       </td>
-       	 </tr>
+       	   </tr>
+ 			<tr>
+				<td>
+                    <td><form:label path="seat_no">Seat</form:label></td>
+                    <td><form:input path="seat_no" /></td>
+
+                    <td><form:label path="mobile_no">Mobile Number</form:label></td>
+                    <td><form:input path="mobile_no"/></td>
+       	       </td>
+       	   </tr>
+       	   	<tr>
+				<td>
+                    <td><form:label path="email_id">Seat</form:label></td>
+                    <td><form:input path="email_id"/></td>
+       	       </td>
+       	   </tr>
                 <tr>
-                    <td><input type="submit" value="Submit"/></td>
+                    <td><input style="width:100px;background-color:#086288;color:white;" type="submit" align="center" value="Submit"/></td>
                 </tr>
              
-            </table>           
+            </table>          
       </div>
       </div> 
-      
+ 
+ 
+  </div>    
         </form:form>
 
 
@@ -332,7 +390,7 @@ padding:15px 50px;
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
-for (i = 0; i < 2; i++) {
+for (i = 0; i < 1 ; i++) {
 
 
   coll[i].addEventListener("click", function() {

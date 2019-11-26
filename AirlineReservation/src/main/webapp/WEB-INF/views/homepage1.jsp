@@ -34,7 +34,7 @@ nav {
   position: relative;
   width: calc(100% - 60px);
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 40px 0;
   background: black;
   z-index: 1;
   text-align: right;
@@ -189,8 +189,6 @@ nav:after {
     </div>
  
     <ul class="menu-area">
-   		<li><a style="border: 2px solid #f8f9ff;" href="${pageContext.request.contextPath}/Loginuser" >USERLOGIN</a></li>
-      <li><a style="border: 2px solid #f8f9ff;" href="${pageContext.request.contextPath}/Login" >ADMIN LOGIN</a></li>
     </ul>
   </nav>
 </div>

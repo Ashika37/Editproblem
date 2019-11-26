@@ -20,6 +20,10 @@ public class Passenger {
 	private String gender;	
 	private String passenger_surname;
 	private String salutation;
+	private String seat_no;
+	private int flight_id;
+	private int mobile_no;
+	private String email_id;
 	
 	public long getPassenger_id() {
 		return passenger_id;
@@ -42,8 +46,8 @@ public class Passenger {
 	public String getPassenger_surname() {
 		return passenger_surname;
 	}
-	public void setPassenger_sirname(String passenger_sirname) {
-		this.passenger_surname = passenger_sirname;
+	public void setPassenger_surname(String passenger_surname) {
+		this.passenger_surname = passenger_surname;
 	}
 	public String getSalutation() {
 		return salutation;
@@ -51,9 +55,38 @@ public class Passenger {
 	public void setSalutation(String salutation) {
 		this.salutation = salutation;
 	}
+	
+	public String getSeat_no() {
+		return seat_no;
+	}
+	public void setSeat_no(String seat_no) {
+		this.seat_no = seat_no;
+	}
+	public int getFlight_id() {
+		return flight_id;
+	}
+	public void setFlight_id(int flight_id) {
+		this.flight_id = flight_id;
+	}
+	public int getMobile_no() {
+		return mobile_no;
+	}
+	public void setMobile_no(int mobile_no) {
+		this.mobile_no = mobile_no;
+	}
+	public String getEmail_id() {
+		return email_id;
+	}
+	public void setEmail_id(String email_id) {
+		this.email_id = email_id;
+	}
 	@Override
 	public String toString() {
 		return "Passenger [passenger_id=" + passenger_id + ", passenger_name=" + passenger_name + ", gender=" + gender
-				+ ", passenger_surname=" + passenger_surname + ", salutation=" + salutation + "]";
+				+ ", passenger_surname=" + passenger_surname + ", salutation=" + salutation + ", seat_no=" + seat_no
+				+ ", flight_id=" + flight_id + ", mobile_no=" + mobile_no + ", email_id=" + email_id + "]";
 	}
+
+	
+
 }

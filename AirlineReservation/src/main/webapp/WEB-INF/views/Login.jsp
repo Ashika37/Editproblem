@@ -9,10 +9,11 @@
 <style>
           
             body{
-                background-image: url(https://media.mehrnews.com/old/Original/1393/12/27/IMG17154437.jpg);
+                background-image: url(http://s1.1zoom.net/big3/379/355981-terminator22.jpg);
                 background-size:cover;
+                height:940px;
+                
             }
-
 
             .header{
                 position: absolute;
@@ -25,25 +26,13 @@
                 font-size: 35px;
             }
 
-            .login{
-                position: absolute;
-                top: calc(25% - 75px);
-                left: calc(65% - 50px);
-                padding: 20px;
-
-
-                width: 25%;
-            border-radius: 30px;
-                background-color: #110e09;
-                opacity: 0.8;
-            }
 
             .login input[type=text]{
                 width: 300px;
                 height: 50px;
                 background: transparent;
-                border: 1px solid rgba(255,255,255,0.6);
-                border-radius: 2px;
+                border: 4px solid rgba(255,255,255,0.6);
+                border-radius: 23px;
                 color: #fff;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 font-size: 16px;
@@ -55,8 +44,8 @@
                 width: 300px;
                 height: 50px;
                 background: transparent;
-                border: 1px solid rgba(255,255,255,0.6);
-                border-radius: 2px;
+                border: 4px solid rgba(255,255,255,0.6);
+              border-radius: 23px;
                 color: #fff;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 font-size: 16px;
@@ -65,27 +54,32 @@
                 margin-top: 15px;
             }
 
-            .login input[type=button]{
-                width: 200px;
-                height: 35px;
-                background: beige;
-                border: 1px solid rgb(22, 20, 20);
-                border-radius: 20px;
-                color: #a18d6c;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow',Arial, sans-serif;
-                font-size: 16px;
-                font-weight: 700;
-                padding: 6px;
-                margin-top: 15px;
-
-            }
-
             .header div{
                  float: left;
                 color: #fff;
                 font-family: 'Courier New', Courier, monospace;
                 font-size: 40px;
-                font-weight: 200;
+                font-weight: 800;
+		}
+		
+		.button4 {
+    background-color: #f19d02;
+    color: black;
+    border: 2px solid #11153b;
+    border-radius: 6px;
+    padding: 4px;
+    width: 74px;
+    height: 40px;
+}
+			.login {
+    	position: absolute;
+    	top: calc(30% - 75px);
+    	left: calc(65% - 50px);
+    	padding: 20px;
+    	width: 25%;
+   			 border-radius: 30px;
+    		background-color: #11153b;
+    		opacity: 0.8;
 }
 
 </style>
@@ -95,13 +89,17 @@
   <div class="body"></div>
             <div class="grad"></div>
             <div class="header">
-                <div>LOGIN</div>
+                <div style="font-weight:75px;font-family:Forte;font-size:50px;">ADMIN LOGIN</div>
             </div>
             <br>
             <div class="login">
                      <input type="text" placeholder="username" name="adminuser" required><br>
-                    <input type="password" placeholder="password" id="psw" name="adminpsw"  required> 
-                    <input type="submit" value="Login" onclick="return check(this.form)">
+                    <input type="password" placeholder="password" id="psw" name="adminpsw"  required>
+                    <br>
+                    <br> 
+                    <div style="padding-left:250px;">
+                    <input type="submit" class="button4" value="Login" onclick="return check(this.form)">
+                    </div>
             </div>
 
 		<script language="javascript">

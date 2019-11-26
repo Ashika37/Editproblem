@@ -56,10 +56,10 @@ public class FlightsearchDaoImpl extends AbstractDao<Long, FlightSearch> impleme
 	}
 	
 	@Override
-	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc) {
-		List<FlightSearch> flightsearchByName=getEntityManager().createQuery("SELECT u FROM FlightSearch u WHERE u.from_loc LIKE :from_loc AND u.to_loc LIKE :to_loc", FlightSearch.class).setParameter("from_loc", from_loc)
-				.setParameter("to_loc", to_loc).getResultList();
+	public List<FlightSearch> findByFirstnameAndLastName(String from_loc, String to_loc,String flight_date) {
 		
+		List<FlightSearch> flightsearchByName=getEntityManager().createQuery("SELECT u FROM FlightSearch u WHERE u.from_loc LIKE :from_loc AND u.to_loc LIKE :to_loc AND u.flight_date LIKE :flight_date", FlightSearch.class).setParameter("from_loc", from_loc)
+				.setParameter("to_loc", to_loc).setParameter("flight_date", flight_date).getResultList();
 		
 		return flightsearchByName;
 	}

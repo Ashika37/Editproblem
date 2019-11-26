@@ -11,9 +11,7 @@
 	<br>
 	<br>
 	<br>
-	
-	<a href="${pageContext.request.contextPath}/addPassenger">Home</a>
-	<br>
+
 	<h3>List of all Passengers</h3>
 	${message}
 	<br>
@@ -23,22 +21,25 @@
 			<tr>
 				<th>Passenger ID</th>
 				<th>Passenger Salutation</th>
-				<th>Passenger Name</th>
-				<th>Passenger Sirname</th>
+				<th>First Name</th>
+				<th>Last name</th>
 				<th>Gender</th>
-				
+				<th>Mobile Number</th>
+				<th>Email Id</th>
+				<th>FlightID</th>		
 			</tr>
 		</thead>
-
 		<tbody>
 			<c:forEach var="passenger" items="${passengerList}">
 				<tr>
 					<td>${passenger.passenger_id}</td>
 					<td>${passenger.salutation}</td>
 					<td>${passenger.passenger_name}</td>
-					<td>${passenger.passenger_sirname}</td>
+					<td>${passenger.passenger_surname}</td>
 					<td>${passenger.gender}</td>
-					
+					<td>${passenger.mobile_no}</td>
+					<td>${passenger.email_id}</td>
+					<td>${passenger.flight_id}</td>
 					</tr>
 			</c:forEach>
 		</tbody>

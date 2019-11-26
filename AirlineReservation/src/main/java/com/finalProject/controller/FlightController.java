@@ -34,12 +34,12 @@ public class FlightController {
 		this.flightservice = flightservice;
 	}
 	
-	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	/*@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public ModelAndView hello(HttpServletResponse response) throws IOException {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
 		return mv;
-	}
+	}*/
 		
 	@RequestMapping(value = "/allFlights", method = RequestMethod.POST)
 	public ModelAndView displayAllFlight() {
@@ -88,7 +88,7 @@ public class FlightController {
 	}
 	
 	
-	@RequestMapping(value = "/editFlight/{id}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/editFlight/{id}", method = RequestMethod.GET)
 	public ModelAndView displayEditFlightForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("editFlight");
 		FlightSearch flightsearch = flightservice.getFlightById(id);
@@ -114,7 +114,8 @@ public class FlightController {
 		}
 		ModelAndView mv = new ModelAndView("redirect:/allFlights");
 		return mv;
-	}
+	}*/
+	
 	@RequestMapping(value = "/deleteFlight/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteFlightById(@PathVariable Long id) {
 		boolean isDeleted = flightservice.deleteFlightById(id);
